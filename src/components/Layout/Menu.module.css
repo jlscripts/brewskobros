@@ -1,0 +1,17 @@
+.section {
+  height: 100%;
+  padding: 0 3rem;
+}
+
+.title {
+  font-size: 3rem;
+  color: var(--primary-color);
+  text-align: center;
+}
+
+.menuItems {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  list-style: none;
+  margin: 2rem 0;
+}

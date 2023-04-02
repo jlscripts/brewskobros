@@ -1,0 +1,23 @@
+.home-section {
+  height: 70vh;
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: start;
+}
+
+.first-line {
+  color: var(--primary-color);
+  letter-spacing: 2.8px;
+}
+
+.second-line {
+  color: var(--quarternary-color);
+  font-size: 4.5rem;
+  line-height: 1.2;
+  margin: 2rem 0;
+}

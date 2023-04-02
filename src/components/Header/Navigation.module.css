@@ -1,0 +1,22 @@
+.navigation {
+  display: flex;
+  gap: 3rem;
+  list-style: none;
+  color: white;
+  font-weight: bold;
+  letter-spacing: 0.2rem;
+}
+
+.link {
+  padding-bottom: 0.7rem;
+  cursor: pointer;
+}
+
+.link:hover,
+.link:active {
+  color: var(--primary-color);
+}
+
+.selected {
+  border-bottom: 2px solid var(--primary-color);
+}

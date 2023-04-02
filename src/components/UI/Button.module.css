@@ -1,0 +1,17 @@
+.button {
+  border: solid 1px var(--primary-color);
+  background-color: transparent;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 15px 30px;
+  letter-spacing: 3px;
+  color: var(--quarternary-color);
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.button:hover {
+  color: var(--secondary-color);
+  background-color: var(--primary-color);
+  transition: all 0.2s;
+}

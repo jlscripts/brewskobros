@@ -1,10 +1,12 @@
+import React, { useEffect, useState } from "react";
+
 import Header from "./Header/Header";
 import Home from "./Layout/Home";
 import Menu from "./Layout/Menu";
+import AboutUs from "./Layout/AboutUs";
+import Modal from "./UI/Modal";
 
 import classes from "./AppContainer.module.css";
-import React, { useEffect, useState } from "react";
-import AboutUs from "./Layout/AboutUs";
 
 const AppContainer = () => {
   const [activeSection, setActiveSection] = useState("home");
@@ -31,6 +33,7 @@ const AppContainer = () => {
         )}
         {activeSection === "menu" ? <Menu></Menu> : ""}
         {activeSection === "about us" && <AboutUs></AboutUs>}
+        {activeSection === "cart" && <Modal></Modal>}
       </div>
     </React.Fragment>
   );

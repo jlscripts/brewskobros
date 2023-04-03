@@ -5,9 +5,7 @@ const Menu = () => {
   return (
     <section className={classes.section}>
       <h1 className={classes.title}>Our menu</h1>
-      <ul className={classes.menuItems}>
-        <AvailableProducts></AvailableProducts>
-      </ul>
+      <AvailableProducts></AvailableProducts>
     </section>
   );
 };

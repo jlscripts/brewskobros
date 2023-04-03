@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import CartBtn from "./CartBtn";
+import CartBtn from "../Cart/CartBtn";
 import classes from "./Navigation.module.css";
 
 const navigation = ["home", "menu", "about us"];
@@ -19,6 +19,10 @@ const Navigation = (props) => {
     if (props.onShowMenu === true) setActiveSection("menu");
   }, [props.onShowMenu]);
 
+  const onClickHandler = () => {
+    setActiveSection("cart");
+  };
+
   return (
     <ul className={classes.navigation}>
       {navigation.map((section) => (
@@ -34,7 +38,7 @@ const Navigation = (props) => {
         </li>
       ))}
       <li>
-        <CartBtn></CartBtn>
+        <CartBtn onClick={onClickHandler}></CartBtn>
       </li>
     </ul>
   );

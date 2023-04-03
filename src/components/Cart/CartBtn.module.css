@@ -1,0 +1,24 @@
+.icon {
+  width: 32px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--primary-color);
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.container:hover {
+  background-color: white;
+  transition: all 0.3s;
+}
+
+.cartNumber {
+  font-size: 1.2rem;
+  color: black;
+}

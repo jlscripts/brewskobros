@@ -1,5 +1,6 @@
 .navigation {
   display: flex;
+  align-items: center;
   gap: 3rem;
   list-style: none;
   color: white;

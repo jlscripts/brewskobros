@@ -4,6 +4,7 @@ import Menu from "./Layout/Menu";
 
 import classes from "./AppContainer.module.css";
 import React, { useEffect, useState } from "react";
+import AboutUs from "./Layout/AboutUs";
 
 const AppContainer = () => {
   const [activeSection, setActiveSection] = useState("home");
@@ -25,14 +26,11 @@ const AppContainer = () => {
           onNavigate={onNavigateHandler}
           onShowMenu={menuIsActive}
         ></Header>
-        {activeSection === "home" ? (
+        {activeSection === "home" && (
           <Home onShowMenu={onShowMenuHandler}></Home>
-        ) : (
-          ""
         )}
         {activeSection === "menu" ? <Menu></Menu> : ""}
-        {/* <About></About> */}
-        {/* <ContactUs></ContactUs> */}
+        {activeSection === "about us" && <AboutUs></AboutUs>}
       </div>
     </React.Fragment>
   );

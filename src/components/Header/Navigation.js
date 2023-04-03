@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
+import CartBtn from "./CartBtn";
 import classes from "./Navigation.module.css";
 
-const navigation = ["home", "menu", "about", "contact us"];
+const navigation = ["home", "menu", "about us"];
 
 const Navigation = (props) => {
   const [activeSection, setActiveSection] = useState("home");
@@ -32,6 +33,9 @@ const Navigation = (props) => {
           </a>
         </li>
       ))}
+      <li>
+        <CartBtn></CartBtn>
+      </li>
     </ul>
   );
 };

@@ -4,7 +4,7 @@ import Header from "./Header/Header";
 import Home from "./Layout/Home";
 import Menu from "./Layout/Menu";
 import AboutUs from "./Layout/AboutUs";
-import Modal from "./UI/Modal";
+import Cart from "./Cart/Cart";
 
 import classes from "./AppContainer.module.css";
 
@@ -26,6 +26,10 @@ const AppContainer = () => {
     setShowCart(true);
   };
 
+  const onCloseCartHandler = () => {
+    setShowCart(false);
+  };
+
   return (
     <React.Fragment>
       <div className={classes.container}>
@@ -37,9 +41,9 @@ const AppContainer = () => {
         {activeSection === "home" && (
           <Home onShowMenu={onShowMenuHandler}></Home>
         )}
-        {activeSection === "menu" ? <Menu></Menu> : ""}
+        {activeSection === "menu" && <Menu></Menu>}
         {activeSection === "about us" && <AboutUs></AboutUs>}
-        {showCart && <Modal></Modal>}
+        {showCart && <Cart onCloseCart={onCloseCartHandler}></Cart>}
       </div>
     </React.Fragment>
   );

@@ -1,9 +1,10 @@
 import { useContext } from "react";
 import CartIem from "./CartItem";
+import Modal from "../UI/Modal";
 
 import CartContext from "../../store/cart-context";
 
-const Cart = () => {
+const Cart = (props) => {
   const cartCtx = useContext(CartContext);
 
   const totalAmount = `$${cartCtx.totalAmount.toFixed(2)}`;
@@ -22,7 +23,7 @@ const Cart = () => {
     </ul>
   );
 
-  return <Modal onClose={onClose}>{cartItems}</Modal>;
+  return <Modal onCloseCart={props.onCloseCart}>{cartItems}</Modal>;
 };
 
 export default Cart;

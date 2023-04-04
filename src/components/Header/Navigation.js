@@ -38,7 +38,7 @@ const Navigation = (props) => {
         </li>
       ))}
       <li>
-        <CartBtn onClick={onClickHandler}></CartBtn>
+        <CartBtn onShowCart={props.onShowCart}></CartBtn>
       </li>
     </ul>
   );

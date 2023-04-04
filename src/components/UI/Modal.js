@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
 
 import classes from "./Modal.module.css";
@@ -15,12 +15,15 @@ const ModalOverlay = (props) => {
   );
 };
 
-const Modal = () => {
+const Modal = (props) => {
   const portalElement = document.getElementById("overlays");
 
   return (
     <React.Fragment>
-      {ReactDOM.createPortal(<Backdrop></Backdrop>, portalElement)}
+      {ReactDOM.createPortal(
+        <Backdrop onClose={props.onClose}></Backdrop>,
+        portalElement
+      )}
       {ReactDOM.createPortal(<ModalOverlay></ModalOverlay>, portalElement)}
     </React.Fragment>
   );

@@ -17,6 +17,7 @@ const Header = (props) => {
       <Navigation
         onNavigate={onNavigateHandler}
         onShowMenu={props.onShowMenu}
+        onShowCart={props.onShowCart}
       ></Navigation>
     </div>
   );

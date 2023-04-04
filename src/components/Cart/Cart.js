@@ -22,7 +22,7 @@ const Cart = () => {
     </ul>
   );
 
-  return <Modal>{cartItems}</Modal>;
+  return <Modal onClose={onClose}>{cartItems}</Modal>;
 };
 
 export default Cart;

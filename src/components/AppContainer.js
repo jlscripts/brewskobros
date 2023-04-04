@@ -11,6 +11,7 @@ import classes from "./AppContainer.module.css";
 const AppContainer = () => {
   const [activeSection, setActiveSection] = useState("home");
   const [menuIsActive, setMenuIsActive] = useState(false);
+  const [showCart, setShowCart] = useState(false);
 
   const onNavigateHandler = (activateSection) => {
     if (activateSection !== "menu") setMenuIsActive(false);
@@ -21,19 +22,24 @@ const AppContainer = () => {
     setMenuIsActive(true);
   };
 
+  const onShowCartHandler = () => {
+    setShowCart(true);
+  };
+
   return (
     <React.Fragment>
       <div className={classes.container}>
         <Header
           onNavigate={onNavigateHandler}
           onShowMenu={menuIsActive}
+          onShowCart={onShowCartHandler}
         ></Header>
         {activeSection === "home" && (
           <Home onShowMenu={onShowMenuHandler}></Home>
         )}
         {activeSection === "menu" ? <Menu></Menu> : ""}
         {activeSection === "about us" && <AboutUs></AboutUs>}
-        {activeSection === "cart" && <Modal></Modal>}
+        {showCart && <Modal></Modal>}
       </div>
     </React.Fragment>
   );

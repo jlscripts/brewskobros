@@ -2,7 +2,8 @@
   width: 32px;
 }
 
-.container {
+.button {
+  border-style: none;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,7 +14,7 @@
   cursor: pointer;
 }
 
-.container:hover {
+.button:hover {
   background-color: white;
   transition: all 0.3s;
 }

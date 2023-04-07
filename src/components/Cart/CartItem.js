@@ -22,7 +22,6 @@ const CartIem = (props) => {
 
   return (
     <li className={classes.item}>
-      <DeleteButton></DeleteButton>
       <div className={classes.imgContainer}>
         <img
           src={images[props.name.toLowerCase().replaceAll(/\s+/g, "")]}

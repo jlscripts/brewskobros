@@ -1,4 +1,3 @@
-import DeleteButton from "./DeleteButton";
 import QtyButton from "../UI/QtyButton";
 
 import classes from "./CartItem.module.css";

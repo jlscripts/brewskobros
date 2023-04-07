@@ -5,6 +5,13 @@ import Button from "../UI/Button";
 
 import classes from "./ProductItem.module.css";
 
+import americano from "../../assets/americano.jpg";
+import capuccino from "../../assets/capuccino.jpg";
+import espresso from "../../assets/espresso.jpg";
+import machiato from "../../assets/machiato.jpg";
+import mocha from "../../assets/mocha.jpg";
+import vanillalatte from "../../assets/vanilla-latte.jpg";
+
 const ProductItem = (props) => {
   const cartCtx = useContext(CartContext);
 
@@ -13,12 +20,27 @@ const ProductItem = (props) => {
       id: props.id,
       name: props.name,
       price: props.price,
+      quantity: 1,
     });
+  };
+
+  const images = {
+    americano,
+    capuccino,
+    espresso,
+    machiato,
+    mocha,
+    vanillalatte,
   };
 
   return (
     <li className={classes.container}>
-      <div className={classes.photo}>PHOTO</div>
+      <div className={classes.imageContainer}>
+        <img
+          src={images[props.name.toLowerCase().replaceAll(/\s+/g, "")]}
+          className={classes.image}
+        ></img>
+      </div>
       <div className={classes.productDetails}>
         <h1 className={classes.name}>{props.name}</h1>
         <i>{props.description}</i>

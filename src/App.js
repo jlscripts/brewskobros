@@ -8,12 +8,12 @@ import CartProvider from "./store/CartProvider";
 
 function App() {
   return (
-    // <CartProvider>
-    <div className={classes.container}>
-      <AppContainer></AppContainer>
-      <img src={background} className={classes.background}></img>
-    </div>
-    // </CartProvider>
+    <CartProvider>
+      <div className={classes.container}>
+        <AppContainer></AppContainer>
+        <img src={background} className={classes.background}></img>
+      </div>
+    </CartProvider>
   );
 }
 

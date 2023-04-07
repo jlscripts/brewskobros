@@ -4,19 +4,17 @@ import CartCtx from "./cart-context";
 
 const defaultCartState = {
   items: [],
-  totalQuantity: 0,
   totalAmount: 0,
 };
 
 const cartReducer = (state, action) => {
   if (action.type === "ADD") {
     let updatedItems;
-    const updatedTotalQuantity = ++state.totalQuantity;
     const updatedTotalAmount = state.totalAmount + action.item.price;
 
     //Identify if the item is already existing.
     const existingCartItemIndex = state.items.findIndex(
-      (item) => action.item.id === item.id
+      (item) => item.id === action.item.id
     );
     const existingCartItem = state.items[existingCartItemIndex];
 
@@ -27,11 +25,15 @@ const cartReducer = (state, action) => {
         quantity: existingCartItem.quantity + 1,
       };
       updatedItems = [...state.items];
-      updatedItems[existingCartItem] = updatedItem;
+      updatedItems[existingCartItemIndex] = updatedItem;
     } else {
       // If not existing, add it in the previous state
       updatedItems = state.items.concat(action.item);
     }
+    return {
+      items: updatedItems,
+      totalAmount: updatedTotalAmount,
+    };
   }
 };
 
@@ -62,7 +64,9 @@ const CartProvider = (props) => {
     removeItem: removeItemHandler,
   };
 
-  return <CartCtx value={cartContext}>{props.children}</CartCtx>;
+  return (
+    <CartCtx.Provider value={cartContext}>{props.children}</CartCtx.Provider>
+  );
 };
 
 export default CartProvider;

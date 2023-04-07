@@ -12,22 +12,16 @@ const Cart = (props) => {
   const totalAmount = `$${cartCtx.totalAmount.toFixed(2)}`;
   const hasItems = cartCtx.items.length > 0;
 
-  // const cartItems = (
-  //   <ul>
-  //     {cartCtx.items.map((item) => (
-  //       <CartIem
-  //         key={item.id}
-  //         name={item.name}
-  //         quantity={item.quantity}
-  //         price={item.price}
-  //       ></CartIem>
-  //     ))}
-  //   </ul>
-  // );
-
   const cartItems = (
-    <ul className={classes.items}>
-      <CartIem key="1" name="Espresso" quantity="1" price="100"></CartIem>
+    <ul className={classes.cartItems}>
+      {cartCtx.items.map((item) => (
+        <CartIem
+          key={item.id}
+          name={item.name}
+          quantity={item.quantity}
+          price={item.price}
+        ></CartIem>
+      ))}
     </ul>
   );
 
@@ -37,7 +31,7 @@ const Cart = (props) => {
       {cartItems}
       <div className={classes.totalAmountContainer}>
         <p>Total:</p>
-        <p>P100</p>
+        <p>{totalAmount}</p>
       </div>
       <div className={classes.btnContainer}>
         <button

@@ -9,15 +9,20 @@
   background-color: rgba(255, 255, 255, 0.75);
 }
 
-.photo {
+.imageContainer {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 120px;
   height: 120px;
-  border: dashed 2px black;
-  border-radius: 10px;
+  border: solid 1px black;
+  border-radius: 5px;
   flex-shrink: 0;
+}
+
+.image {
+  height: 100%;
+  width: 100%;
 }
 
 .productDetails {

@@ -5,8 +5,9 @@
   border-bottom: 1px solid #554949;
 }
 
-.items {
-  list-style: none;
+.cartItems {
+  overflow: auto;
+  max-height: 25rem;
 }
 
 .totalAmountContainer {

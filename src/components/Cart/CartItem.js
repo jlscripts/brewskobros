@@ -33,9 +33,9 @@ const CartIem = (props) => {
         <h3 className={classes.productName}>{props.name}</h3>
       </div>
       <div className={classes.quantityContainer}>
-        <QtyButton>-</QtyButton>
+        <QtyButton onClick={props.onRemoveItem}>-</QtyButton>
         <p>{props.quantity}</p>
-        <QtyButton>+</QtyButton>
+        <QtyButton onClick={props.onAddItem}>+</QtyButton>
       </div>
       <h3 className={classes.price}>₱{props.price}</h3>
     </li>

@@ -20,6 +20,8 @@ const Cart = (props) => {
           name={item.name}
           quantity={item.quantity}
           price={item.price}
+          onAddItem={cartCtx.addItem.bind(null, item)}
+          onRemoveItem={cartCtx.removeItem.bind(null, item.id)}
         ></CartIem>
       ))}
     </ul>
@@ -40,7 +42,11 @@ const Cart = (props) => {
         >
           Cancel
         </button>
-        <button className={`${classes.orderBtn} ${classes.btn}`}>Order</button>
+        {hasItems && (
+          <button className={`${classes.orderBtn} ${classes.btn}`}>
+            Order
+          </button>
+        )}
       </div>
     </Modal>
   );

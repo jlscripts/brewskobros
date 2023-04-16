@@ -3,11 +3,11 @@
 }
 
 .container {
-  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: start;
+  height: 100%;
 }
 
 .first-line {
@@ -16,8 +16,26 @@
 }
 
 .second-line {
+  margin: 2rem 0;
+  line-height: 1.2;
   color: var(--quarternary-color);
   font-size: 4.5rem;
-  line-height: 1.2;
-  margin: 2rem 0;
+}
+
+.orderNowBtn {
+  padding: 15px 30px;
+  border: solid 1px var(--primary-color);
+  border-radius: 5px;
+  background-color: transparent;
+  color: var(--quarternary-color);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  cursor: pointer;
+}
+
+.orderNowBtn:hover {
+  color: var(--secondary-color);
+  background-color: var(--primary-color);
+  transition: all 0.2s;
 }

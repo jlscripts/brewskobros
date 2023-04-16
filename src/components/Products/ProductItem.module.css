@@ -39,7 +39,7 @@
   font-size: 1.1rem;
 }
 
-.button {
+.addToCartBtn {
   position: absolute;
   bottom: 0;
   right: 0;
@@ -48,11 +48,14 @@
   border-style: none;
   border-radius: 5px;
   background-color: var(--primary-color);
-  color: var(--tertiary-color);
-  font-size: 1.3rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #232425;
+  cursor: pointer;
 }
 
-.button:hover {
+.addToCartBtn:hover {
   background-color: var(--secondary-color);
   color: var(--primary-color);
+  transition: all 0.2s;
 }

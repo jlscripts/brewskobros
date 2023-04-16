@@ -41,3 +41,8 @@
 .price {
   font-size: 1.1rem;
 }
+
+.qtyBtn {
+  width: 30px;
+  height: 30px;
+}

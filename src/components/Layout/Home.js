@@ -1,5 +1,3 @@
-import Button from "../UI/Button";
-
 import classes from "./Home.module.css";
 
 const Home = (props) => {
@@ -14,7 +12,9 @@ const Home = (props) => {
         <h1 className={classes["second-line"]}>
           Your daily dose <br></br>of happiness <br></br>starts here
         </h1>
-        <Button onClick={onClickHandler}>ORDER NOW</Button>
+        <button className={classes.orderNowBtn} onClick={onClickHandler}>
+          ORDER NOW
+        </button>
       </div>
     </section>
   );

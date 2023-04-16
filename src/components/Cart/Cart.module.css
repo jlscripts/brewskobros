@@ -7,7 +7,7 @@
 
 .cartItems {
   overflow: auto;
-  max-height: 25rem;
+  max-height: 250px;
 }
 
 .totalAmountContainer {
@@ -34,13 +34,15 @@
   letter-spacing: 2px;
 }
 
-.orderBtn {
+.orderBtn,
+.checkoutBtn {
   background-color: var(--primary-color);
   border: 1px solid var(--primary-color);
   transition: all 0.3s;
 }
 
-.orderBtn:hover {
+.orderBtn:hover,
+.checkoutBtn:hover {
   background: white;
   border: 1px solid black;
 }

@@ -1,4 +1,7 @@
 import { useRef, useState } from "react";
+
+import Warning from "../UI/Warning";
+
 import classes from "./Checkout.module.css";
 
 const isNotEmpty = (value) => value.trim() !== "";
@@ -58,20 +61,40 @@ const Checkout = () => {
   return (
     <form onSubmit={onConfirmHandler}>
       <div className={nameControlClasses}>
-        <label htmlFor="name">Name</label>
+        <div className={classes.labelContainer}>
+          <label htmlFor="name">Name</label>
+          {!formValidity.name && (
+            <Warning className={classes.nameTip}></Warning>
+          )}
+        </div>
         <input id="name" type="text" ref={nameInputRef}></input>
       </div>
       <div className={streetControlClasses}>
-        <label htmlFor="street">Street address</label>
+        <div className={classes.labelContainer}>
+          <label htmlFor="street">Street address</label>
+          {!formValidity.street && (
+            <Warning className={classes.streetTip}></Warning>
+          )}
+        </div>
         <input id="street" type="text" ref={streetInputRef}></input>
       </div>
       <div className={classes.cityAndPostalContainer}>
         <div className={cityControlClasses}>
-          <label htmlFor="city">City</label>
+          <div className={classes.labelContainer}>
+            <label htmlFor="city">City</label>
+            {!formValidity.city && (
+              <Warning className={classes.cityTip}></Warning>
+            )}
+          </div>
           <input id="city" type="text" ref={cityInputRef}></input>
         </div>
         <div className={postalControlClasses}>
-          <label htmlFor="postal">Postal code</label>
+          <div className={classes.labelContainer}>
+            <label htmlFor="postal">Postal code</label>
+            {!formValidity.postal && (
+              <Warning className={classes.postalTip}></Warning>
+            )}
+          </div>
           <input id="postal" type="text" ref={postalInputRef}></input>
         </div>
       </div>

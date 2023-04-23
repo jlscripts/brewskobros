@@ -58,3 +58,17 @@
   border: 1px solid black;
   color: black;
 }
+
+.orderSubmitted {
+  text-align: center;
+}
+
+.processingContent {
+  text-align: center;
+}
+
+.continueBtn {
+  margin-top: 2rem;
+  padding: 10px;
+  color: var(--secondary-color);
+}

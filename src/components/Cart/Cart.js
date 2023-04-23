@@ -53,6 +53,11 @@ const Cart = (props) => {
     cartCtx.clearCart();
   };
 
+  const onContinueHandler = () => {
+    setDidSubmit(false);
+    props.onCloseCart();
+  };
+
   const cartModalContent = (
     <React.Fragment>
       <h2 className={classes.header}>Your shopping cart</h2>
@@ -98,7 +103,7 @@ const Cart = (props) => {
     <div className={classes.orderSubmitted}>
       <h2>Your order has been received</h2>
       <p>Thank you for your purchase!</p>
-      <Button className={classes.continueBtn} onClick={props.onCloseCart}>
+      <Button className={classes.continueBtn} onClick={onContinueHandler}>
         Continue browsing
       </Button>
     </div>

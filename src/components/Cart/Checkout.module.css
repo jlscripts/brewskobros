@@ -17,7 +17,7 @@ label {
 }
 
 input {
-  padding: 5px;
+  padding: 5px 10px;
   border: solid 1px black;
   border-radius: 5px;
   font-size: 1rem;
@@ -86,21 +86,15 @@ input {
   background-color: #fecaca;
 }
 
-.nameTip,
-.streetTip,
-.cityTip,
+.otherTip,
 .postalTip {
   position: relative;
   display: flex;
   align-items: center;
 }
 
-.nameTip::before,
-.nameTip::after,
-.streetTip::before,
-.streetTip::after,
-.cityTip::before,
-.cityTip::after,
+.otherTip::before,
+.otherTip::after,
 .postalTip::before,
 .postalTip::after {
   --scale: 0;
@@ -116,23 +110,19 @@ input {
   transform-origin: left center;
 }
 
-.nameTip::before,
-.streetTip::before,
-.cityTip::before,
+.otherTip::before,
 .postalTip::before {
-  --translate-x: calc(3 * var(--arrow-size));
+  --translate-x: calc(2.5 * var(--arrow-size));
   color: white;
   font-style: italic;
   font-size: 0.9rem;
   padding: 2px 10px;
   width: max-content;
   background-color: var(--tip-color);
-  border-radius: 4px;
+  border-radius: 10px;
 }
 
-.nameTip::before,
-.streetTip::before,
-.cityTip::before {
+.otherTip::before {
   content: "This field can't be empty.";
 }
 
@@ -140,9 +130,7 @@ input {
   content: "Please enter a valid 4-digits code.";
 }
 
-.nameTip::after,
-.streetTip::after,
-.cityTip::after,
+.otherTip::after,
 .postalTip::after {
   --translate-x: var(--arrow-size);
 
@@ -152,12 +140,8 @@ input {
   transform-origin: right center;
 }
 
-.nameTip:hover::before,
-.nameTip:hover::after,
-.streetTip:hover::before,
-.streetTip:hover::after,
-.cityTip:hover::before,
-.cityTip:hover::after,
+.otherTip:hover::before,
+.otherTip:hover::after,
 .postalTip:hover::before,
 .postalTip:hover::after {
   --scale: 1;

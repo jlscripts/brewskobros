@@ -33,8 +33,17 @@ const Cart = (props) => {
     setIsCheckout(true);
   };
 
-  const checkoutHandler = () => {
-    console.log("click");
+  const onCheckoutHandler = async (userData) => {
+    await fetch(
+      "https://brewskobros-default-rtdb.asia-southeast1.firebasedatabase.app/orders.json",
+      {
+        method: "POST",
+        body: JSON.stringify({
+          user: userData,
+          orderedItems: cartCtx.items,
+        }),
+      }
+    );
   };
 
   return (
@@ -46,7 +55,12 @@ const Cart = (props) => {
           <p>Total:</p>
           <p>{totalAmount}</p>
         </div>
-        {isCheckout && <Checkout></Checkout>}
+        {isCheckout && (
+          <Checkout
+            onCloseCart={props.onCloseCart}
+            onCheckout={onCheckoutHandler}
+          ></Checkout>
+        )}
       </div>
       <div className={classes.btnContainer}>
         {!isCheckout && (

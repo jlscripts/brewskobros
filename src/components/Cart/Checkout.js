@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 
 import Warning from "../UI/Warning";
 
@@ -7,7 +7,7 @@ import classes from "./Checkout.module.css";
 const isNotEmpty = (value) => value.trim() !== "";
 const isFourChars = (value) => value.trim().length === 4;
 
-const Checkout = () => {
+const Checkout = (props) => {
   const [formValidity, setFormValidity] = useState({
     name: true,
     street: true,
@@ -53,28 +53,33 @@ const Checkout = () => {
       postal: postalIsValid,
     });
 
-    if (!nameIsValid && !streetIsValid && !cityIsValid && !postalIsValid) {
-      console.log("invalid");
+    if (!nameIsValid || !streetIsValid || !cityIsValid || !postalIsValid) {
+      return;
     }
+
+    props.onCheckout({
+      name: enteredName,
+      street: enteredStreet,
+      city: enteredCity,
+      postal: enteredPostal,
+    });
   };
 
-  return (
+  const warningContent = <Warning className={classes.otherTip}></Warning>;
+
+  const checkoutFormContent = (
     <form onSubmit={onConfirmHandler}>
       <div className={nameControlClasses}>
         <div className={classes.labelContainer}>
           <label htmlFor="name">Name</label>
-          {!formValidity.name && (
-            <Warning className={classes.nameTip}></Warning>
-          )}
+          {!formValidity.name && warningContent}
         </div>
         <input id="name" type="text" ref={nameInputRef}></input>
       </div>
       <div className={streetControlClasses}>
         <div className={classes.labelContainer}>
           <label htmlFor="street">Street address</label>
-          {!formValidity.street && (
-            <Warning className={classes.streetTip}></Warning>
-          )}
+          {!formValidity.street && warningContent}
         </div>
         <input id="street" type="text" ref={streetInputRef}></input>
       </div>
@@ -82,9 +87,7 @@ const Checkout = () => {
         <div className={cityControlClasses}>
           <div className={classes.labelContainer}>
             <label htmlFor="city">City</label>
-            {!formValidity.city && (
-              <Warning className={classes.cityTip}></Warning>
-            )}
+            {!formValidity.city && warningContent}
           </div>
           <input id="city" type="text" ref={cityInputRef}></input>
         </div>
@@ -99,13 +102,19 @@ const Checkout = () => {
         </div>
       </div>
       <div className={classes.btnContainer}>
-        <button type="button" className={classes.cancelBtn}>
+        <button
+          type="button"
+          className={classes.cancelBtn}
+          onClick={props.onCloseCart}
+        >
           Cancel
         </button>
         <button className={classes.confirmBtn}>Confirm</button>
       </div>
     </form>
   );
+
+  return <React.Fragment>{checkoutFormContent}</React.Fragment>;
 };
 
 export default Checkout;

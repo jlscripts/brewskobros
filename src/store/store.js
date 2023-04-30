@@ -1,19 +1,10 @@
-import { configureStore, createSlice } from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit";
 
-const navigationSlice = createSlice({
-  name: "navigation",
-  initialState: "home",
-  reducers: {
-    navigateTo(state, action) {
-      state = action.payload;
-    },
-  },
-});
+import navigationSlice from "./navigation-slice";
+import cartSlice from "./cart-slice";
 
 const store = configureStore({
-  reducer: { navigation: navigationSlice.reducer },
+  reducer: { navigation: navigationSlice.reducer, cart: cartSlice.reducer },
 });
-
-export const navigationActions = navigationSlice.actions;
 
 export default store;

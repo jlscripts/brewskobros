@@ -1,18 +1,24 @@
 import { useContext, useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 
 import CartBtn from "../Cart/CartBtn";
 import CartContext from "../../store/cart-context";
+import { navigationActions } from "../../store/navigation-slice";
 
 import classes from "./Navigation.module.css";
 
 const navigation = ["home", "menu", "about us"];
 
 const Navigation = (props) => {
+  const dispatch = useDispatch();
   const [activeSection, setActiveSection] = useState("home");
   const [bumpEffect, setBumpEffect] = useState(false);
   const cartCtx = useContext(CartContext);
 
   const activateSectionHandler = (e) => {
+    const clickedSection = e.target.textContent.toLowerCase();
+    dispatch(navigationActions.navigateTo(clickedSection));
+
     setActiveSection(e.target.textContent.toLowerCase());
   };
 

@@ -7,15 +7,18 @@ import AboutUs from "./Layout/AboutUs";
 import Cart from "./Cart/Cart";
 
 import classes from "./AppContainer.module.css";
+import { useSelector } from "react-redux";
 
 const AppContainer = () => {
-  const [activeSection, setActiveSection] = useState("home");
+  const activeSection = useSelector((state) => state.navigation.activeSection);
+  // const [activeSection, setActiveSection] = useState("home");
   const [menuIsActive, setMenuIsActive] = useState(false);
   const [showCart, setShowCart] = useState(false);
 
   const onNavigateHandler = (activateSection) => {
-    if (activateSection !== "menu") setMenuIsActive(false);
-    setActiveSection(activateSection);
+    // if (activateSection !== "menu") setMenuIsActive(false);
+    // setActiveSection(activateSection);
+    console.log("clicked");
   };
 
   const onShowMenuHandler = () => {

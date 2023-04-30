@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
+import { useDispatch } from "react-redux";
 
 import classes from "./Modal.module.css";
+import { navigationActions } from "../../store/navigation-slice";
 
 const Backdrop = (props) => {
   return <div className={classes.backdrop} onClick={props.onCloseCart}></div>;
@@ -17,11 +19,16 @@ const ModalOverlay = (props) => {
 
 const Modal = (props) => {
   const portalElement = document.getElementById("overlays");
+  const dispatch = useDispatch();
+
+  const closeCartHandler = () => {
+    dispatch(navigationActions.closeCart());
+  };
 
   return (
     <React.Fragment>
       {ReactDOM.createPortal(
-        <Backdrop onCloseCart={props.onCloseCart}></Backdrop>,
+        <Backdrop onCloseCart={closeCartHandler} />,
         portalElement
       )}
       {ReactDOM.createPortal(

@@ -11,6 +11,7 @@ const navigation = ["home", "menu", "about us"];
 
 const Navigation = (props) => {
   const dispatch = useDispatch();
+
   const [activeSection, setActiveSection] = useState("home");
   const [bumpEffect, setBumpEffect] = useState(false);
   const cartCtx = useContext(CartContext);
@@ -22,9 +23,9 @@ const Navigation = (props) => {
     setActiveSection(e.target.textContent.toLowerCase());
   };
 
-  useEffect(() => {
-    props.onNavigate(activeSection);
-  }, [activeSection]);
+  const showCartHandler = () => {
+    dispatch(navigationActions.openCart());
+  };
 
   useEffect(() => {
     if (props.onShowMenu === true) setActiveSection("menu");
@@ -65,7 +66,7 @@ const Navigation = (props) => {
       <li>
         <CartBtn
           className={`${bumpEffect && classes.bump}`}
-          onShowCart={props.onShowCart}
+          onShowCart={showCartHandler}
         >
           {numberOfCartItems}
         </CartBtn>

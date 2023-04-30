@@ -110,7 +110,7 @@ const Cart = (props) => {
   );
 
   return (
-    <Modal onCloseCart={props.onCloseCart}>
+    <Modal>
       {!isSubmitting && !didSubmit && cartModalContent}
       {isSubmitting && orderSubmittingContent}
       {!isSubmitting && didSubmit && orderSubmittedContent}

@@ -8,11 +8,11 @@ const cartSlice = createSlice({
   reducers: {
     addToCart(state, action) {
       let updatedItems;
-      const updatedTotalAmount = state.totalAmount + action.payload.item.price;
+      const updatedTotalAmount = state.totalAmount + action.payload.price;
 
       //Identify if the item is already existing.
       const existingCartItemIndex = state.items.findIndex(
-        (item) => item.id === action.payload.item.id
+        (item) => item.id === action.payload.id
       );
       const existingCartItem = state.items[existingCartItemIndex];
 
@@ -26,7 +26,7 @@ const cartSlice = createSlice({
         updatedItems[existingCartItemIndex] = updatedItem;
       } else {
         // If not existing, add it in the previous state
-        updatedItems = state.items.concat(action.payload.item);
+        updatedItems = state.items.concat(action.payload);
       }
 
       return {

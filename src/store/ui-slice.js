@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const navigationSlice = createSlice({
+const uiSlice = createSlice({
   name: "navigation",
   initialState: { activeSection: "home", cartIsVisible: false },
   reducers: {
@@ -16,6 +16,6 @@ const navigationSlice = createSlice({
   },
 });
 
-export const navigationActions = navigationSlice.actions;
+export const uiActions = uiSlice.actions;
 
-export default navigationSlice;
+export default uiSlice;

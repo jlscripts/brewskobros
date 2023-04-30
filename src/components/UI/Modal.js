@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { useDispatch } from "react-redux";
 
 import classes from "./Modal.module.css";
-import { navigationActions } from "../../store/navigation-slice";
+import { uiActions } from "../../store/ui-slice";
 
 const Backdrop = (props) => {
   return <div className={classes.backdrop} onClick={props.onCloseCart}></div>;
@@ -22,7 +22,7 @@ const Modal = (props) => {
   const dispatch = useDispatch();
 
   const closeCartHandler = () => {
-    dispatch(navigationActions.closeCart());
+    dispatch(uiActions.closeCart());
   };
 
   return (

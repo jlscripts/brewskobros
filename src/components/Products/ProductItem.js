@@ -1,7 +1,3 @@
-import { useContext } from "react";
-
-import CartContext from "../../store/cart-context";
-
 import classes from "./ProductItem.module.css";
 
 import americano from "../../assets/americano.jpg";
@@ -10,17 +6,21 @@ import espresso from "../../assets/espresso.jpg";
 import machiato from "../../assets/machiato.jpg";
 import mocha from "../../assets/mocha.jpg";
 import vanillalatte from "../../assets/vanilla-latte.jpg";
+import { cartActions } from "../../store/cart-slice";
+import { useDispatch } from "react-redux";
 
 const ProductItem = (props) => {
-  const cartCtx = useContext(CartContext);
+  const dispatch = useDispatch();
 
-  const onAddToCartHandler = () => {
-    cartCtx.addItem({
-      id: props.id,
-      name: props.name,
-      price: props.price,
-      quantity: 1,
-    });
+  const addToCartHandler = () => {
+    dispatch(
+      cartActions.addToCart({
+        id: props.id,
+        name: props.name,
+        price: props.price,
+        quantity: 1,
+      })
+    );
   };
 
   const images = {
@@ -45,7 +45,7 @@ const ProductItem = (props) => {
         <i>{props.description}</i>
         <h1 className={classes.price}>{`₱${props.price}`}</h1>
       </div>
-      <button className={classes.addToCartBtn} onClick={onAddToCartHandler}>
+      <button className={classes.addToCartBtn} onClick={addToCartHandler}>
         +
       </button>
     </li>

@@ -1,3 +1,6 @@
+import { cartActions } from "../../store/cart-slice";
+import { useDispatch } from "react-redux";
+
 import classes from "./ProductItem.module.css";
 
 import americano from "../../assets/americano.jpg";
@@ -6,8 +9,6 @@ import espresso from "../../assets/espresso.jpg";
 import machiato from "../../assets/machiato.jpg";
 import mocha from "../../assets/mocha.jpg";
 import vanillalatte from "../../assets/vanilla-latte.jpg";
-import { cartActions } from "../../store/cart-slice";
-import { useDispatch } from "react-redux";
 
 const ProductItem = (props) => {
   const dispatch = useDispatch();

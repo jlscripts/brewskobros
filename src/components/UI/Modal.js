@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { useDispatch } from "react-redux";
+import { uiActions } from "../../store/ui-slice";
 
 import classes from "./Modal.module.css";
-import { uiActions } from "../../store/ui-slice";
 
 const Backdrop = (props) => {
   return <div className={classes.backdrop} onClick={props.onCloseCart}></div>;

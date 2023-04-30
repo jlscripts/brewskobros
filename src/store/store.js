@@ -11,7 +11,7 @@ const navigationSlice = createSlice({
 });
 
 const store = configureStore({
-  reducer: { navigation: navigationSlice.actions },
+  reducer: { navigation: navigationSlice.reducer },
 });
 
 export const navigationActions = navigationSlice.actions;
